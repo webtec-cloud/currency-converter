@@ -32,9 +32,25 @@ async function getexchangerate() {
   const cur2val = cur2.value;
   const response = await fetch(`${apiURL}${key}/latest/${cur1val}`);
   const data = await response.json();
-  console.log(data);
+  console.log(data.conversion_rates);
   const rate = data.conversion_rates[cur2val];
   baserate.textContent = `1 ${cur1val} = ${rate.toFixed(2)} ${cur2val}`;
   cur2input.value = (cur1input.value * rate).toFixed(2);
 }
 getexchangerate();
+
+cur1.addEventListener("change", () => {
+  getexchangerate();
+});
+cur2.addEventListener("change", () => {
+  getexchangerate();
+});
+cur1input.addEventListener("input", getexchangerate);
+cur2input.addEventListener("input", getexchangerate);
+
+function getflag() {
+  countries.forEach((country) => {
+    console.log(country.name);
+  });
+}
+getflag();
