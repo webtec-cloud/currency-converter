@@ -23,6 +23,26 @@ const countries = [
     name: "USD",
     flagURL: "https://www.worldometers.info/img/flags/us-flag.gif",
   },
+  {
+    name: "AFN",
+    flagURL: "https://www.worldometers.info/img/flags/af-flag.gif",
+  },
+  {
+    name: "CAD",
+    flagURL: "https://www.worldometers.info/img/flags/ca-flag.gif",
+  },
+  {
+    name: "JPY",
+    flagURL: "https://www.worldometers.info/img/flags/ja-flag.gif",
+  },
+  {
+    name: "USD",
+    flagURL: "https://www.worldometers.info/img/flags/us-flag.gif",
+  },
+  {
+    name: "PKR",
+    flagURL: "https://www.worldometers.info/img/flags/pk-flag.gif",
+  },
 ];
 
 const apiURL = "https://v6.exchangerate-api.com/v6/";
