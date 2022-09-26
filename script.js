@@ -47,16 +47,34 @@ async function getExchangeRate() {
 // Add Event Listeners
 cur1.addEventListener("change", () => {
   getExchangeRate();
+  getflag();
 });
 cur2.addEventListener("change", () => {
   getExchangeRate();
+  getflag();
 });
 cur1Input.addEventListener("input", getExchangeRate);
 cur2Input.addEventListener("input", getExchangeRate);
 
 function getflag() {
   countries.forEach((country) => {
-    console.log(country.name);
+    // console.log(country.flagURL);
+    if (cur1.value == country.name) {
+      const imgsrc = document.querySelector(".from img");
+      imgsrc.setAttribute("src", country.flagURL);
+    }
+    if (cur2.value == country.name) {
+      const imgsrc = document.querySelector(".to img");
+      imgsrc.setAttribute("src", country.flagURL);
+    }
   });
 }
-getflag();
+
+switchCur.addEventListener("click", () => {
+  const cur1Value = cur1.value;
+  cur1.value = cur2.value;
+  cur2.value = cur1Value;
+  switchCur.classList.toggle("rotate");
+  getExchangeRate();
+  getflag();
+});
